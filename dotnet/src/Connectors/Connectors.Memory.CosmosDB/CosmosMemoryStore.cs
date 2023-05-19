@@ -298,9 +298,9 @@ public class CosmosMemoryStore : IMemoryStore
     private async IAsyncEnumerable<MemoryRecord> GetAsync(string collectionName, string query, [EnumeratorCancellation] CancellationToken cancellationToken = default)
     {
         var container = this._database.Client.GetContainer(this._databaseName, collectionName);
-        var query = new QueryDefinition(query);
+        var queryDef = new QueryDefinition(query);
 
-        var iterator = container.GetItemQueryIterator<CosmosMemoryRecord>(query);
+        var iterator = container.GetItemQueryIterator<CosmosMemoryRecord>(queryDef);
 
         while (iterator.HasMoreResults) //read all result in batch
         {
