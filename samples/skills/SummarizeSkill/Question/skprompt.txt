@@ -1,0 +1,12 @@
+Below [Chat Context] section is a conversation between a user and Chat Agent. 
+Use it to LEARN ABOUT their chat history.
+
+
+[Chat Context]
+{{$history}}
+[Chat Context End]
+
+
+Now user says: "{{$userInput}}"
+
+Tell me what exactly user wants to say or ask based on above [Chat Context], using one complete sentence.
